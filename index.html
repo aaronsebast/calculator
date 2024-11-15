@@ -92,29 +92,26 @@
 
     function addToDisplay(value) {
       if (displayValue === '0') {
-        displayValue = value; // Replace initial 0 with first number
+        displayValue = value;
       } else {
-        displayValue += value; // Append next numbers
+        displayValue += value;
       }
       updateDisplay(displayValue);
     }
 
     function addOperator(operator) {
       const lastChar = displayValue.slice(-1);
-      if (!isNaN(lastChar) || lastChar === '.') { // Only add operator if last char is a number or dot
+      if (!isNaN(lastChar) || lastChar === '.') {
         displayValue += operator;
       }
       updateDisplay(displayValue);
     }
 
     function calculate() {
-      try {
-        displayValue = eval(displayValue).toString(); // Evaluate the expression
-      } catch (error) {
-        displayValue = 'Error'; // Display error if calculation fails
-      }
+      displayValue = eval(displayValue).toString(); // Directly evaluate the expression
       updateDisplay(displayValue);
     }
   </script>
 </body>
 </html>
+
